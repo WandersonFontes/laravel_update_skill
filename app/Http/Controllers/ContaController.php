@@ -10,19 +10,26 @@ class ContaController extends Controller//Métodos para gerenciar CRUD recomenda
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->middleware('auth')->only([
-            'create','edit','delete','show'
-        ]);
+        //$this->middleware('auth')->only([
+        //    'create','edit','delete','show'
+        //]);
     }
 
     public function index()//Método para apresentar ou listar contas
     {
-        $contas=['conta1','conta2','conta3'];
-        return $contas;
+        //$contas=['wandev'];
+        return view('pages.conta_index',[
+            'dev' => '<h1>Wanderson Developer</h1>',
+            'email' => '<h1>wancf19@gmail.com</h1>'
+        ]);
     }
     public function show($id)//Método para exibir um dado específico através do ID
     {
-        return "Conta:{$id}";
+         return view('pages.conta_show',[
+            'dev' => 'Wanderson Fontes',
+            'email' => '<h1>wancf19@gmail.com</h1>',
+            'lista'=> [1,2,3,4,5]
+        ]);
     }
     public function create()//Método para criar de contas
     {

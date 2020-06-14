@@ -60,12 +60,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Simplificação de Rota para views  
-//Route::view('nome_da_url', 'welcome');
-Route::get('view', function () {
-    return view('welcome');
-});
-
 
 Route::get('teste', function () {
     return 'Teste de Rota';
@@ -129,7 +123,7 @@ Route::middleware([])->group(function(){
 //Exemplo de Grupos mais limpo e simplificado
 Route::group([
     'prefix' => 'admin',
-    'middlware' =>[],
+    //'middlware' =>[],
 ], function () {
     Route::get('config', function(){
         return 'Config Admin';
@@ -157,4 +151,18 @@ Route::get('login', function()
     return 'Login Funcionario';
 })->name('login');
 
+
+//Rota para VIEW's
+
+Route::get('view', function () {
+    return view('welcome');
+});
+
+//Simplificação de Rota para views  
+Route::view('site', 'site');//Route::view('NomeUrl', 'NomeView');
+
+//Rota para tela Home
+Route::view('ini', 'pages.home');
+
+Route::view('criar', 'pages.conta_create');
 
